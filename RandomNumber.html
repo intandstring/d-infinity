@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>jQuery Rand Number</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Gaegu" rel="stylesheet">
+        <style>
+            .center {
+                margin: auto;
+                margin-bottom: 20px;
+                width: 50%;
+                border: 3px solid white;
+                padding: 10px;
+                text-align: center;
+                font-size: 50px;
+                line-height: 35px;
+                font-family: 'Gaegu', cursive;
+            }
+
+            .buttonHolder {
+                margin: auto;
+                width: 50%;
+                border: 3px solid white;
+                padding: 10px;
+                text-align: center;
+            }
+
+            body {
+                background: #6190E8;  /* fallback for old browsers */
+                background: linear-gradient(to right, #A7BFE8, #6190E8); 
+            }
+
+            button {
+                display: inline-block;
+                border:1px solid #c9ae34;
+                color: #705D07;
+                border-radius: 3px 3px 3px 3px;
+                font-family: Verdana;
+                width: auto;
+                height: auto;
+                font-size: 16px;
+                padding: 10px 40px;
+                box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d,0 2px 4px 0 #D4D4D4;
+                text-shadow: 0 1px 0 #fff;
+                background-image: linear-gradient(to top, #fce374, #fcdf5b);
+                background-color: #fce374;
+            }
+
+            button:hover {
+                border:1px solid #967d09;
+                color: #705D07;
+                box-shadow: inset 0 1px 0 0 #fff6ce,inset 0 -1px 0 0 #e3c852,inset 0 0 0 1px #fce88d;
+                background-color: #fcdf5b;
+            }
+
+            .inputs {
+                border: 0;
+                border-bottom: 2px solid #1976D2;
+                font-size: 15px;
+                line-height: 35px;
+                height: 20px;
+                text-align: center;
+                padding: 10px;
+                background: transparent;
+	            color: rgb(11, 63, 105);
+            }
+
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                text-align: center;
+                font-family: 'Gaegu', cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+        $(document).ready(function(){
+            $("#run").click(function(){
+                var maximus = parseInt($("#max").val());
+                var minimus = parseInt($("#min").val());
+                var rando = Math.floor((Math.random() * maximus) + minimus);
+                if (isNaN(rando)){
+                    rando = Math.floor((Math.random() * 10) + 1);
+                    $("#rando").empty().append("<h1>" + rando + "</h1>");
+                } else {
+                    $("#rando").empty().append("<h1>" + rando + "</h1>");
+                }
+            });
+            $("#clear").click(function(){
+                $("#rando").empty();
+            });
+        });
+        </script>
+        <div id="rando" class="center"></div>
+        <div class="buttonHolder">
+            <input type="text" id="min" class="inputs" placeholder="Minimum"><br>
+            <input type="text" id="max"  class="inputs" placeholder="Maximum"><br>
+            <br>
+            <button id="clear">Clear</button>
+            <button id="run">Roll!</button>
+        </div>
+        <footer>
+            <p>Default Values is 1 to 10</p>
+        </footer>
+    </body>
+</html>
